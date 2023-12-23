@@ -5,7 +5,7 @@ from httpx import Client as HttpClient, HTTPError
 from core.markets import Market
 from .config import LEGACY_API_HOST
 from .responses import LegacyApiResponse
-from .exceptions import BrainlyLegacyAPIException, BrainlyLegacyAPIRequestException
+from .exceptions import BrainlyLegacyAPIException, BrainlyLegacyAPIRequestException, QuestionDoesNotExistException
 
 
 class BrainlyLegacyAPI:
@@ -74,4 +74,57 @@ class BrainlyLegacyAPI:
             raise BrainlyLegacyAPIRequestException(str(exc))
 
     def get_me(self):
+        """Get information about the authenticated user."""
         return self._request("api_users/me")
+
+    def get_user_profile(self, user_id: int):
+        """Get the profile of a specific user."""
+        return self._request(f"api_user_profiles/get_by_id/{user_id}")
+
+    def get_question(self, question_id: int):
+        """
+        Get information about a specific question by its ID.
+
+        Raises:
+            QuestionDoesNotExistException: If the question does not exist.
+        """
+        try:
+            question = self._request(f"api_tasks/main_view/{question_id}")
+
+            if question.data["task"]["user_id"] == 0:
+                raise QuestionDoesNotExistException(question_id)
+
+            return question
+        except BrainlyLegacyAPIException as exc:
+            if exc.exception_type_eq(40):
+                raise QuestionDoesNotExistException(question_id)
+
+            raise
+
+    def get_question_log(self, question_id: int):
+        """
+        Get the log information for a specific question by its ID.
+
+        Raises:
+            QuestionDoesNotExistException: If the question does not exist.
+        """
+        try:
+            return self._request(f"api_task_lines/big/{question_id}")
+        except BrainlyLegacyAPIException as exc:
+            if exc.exception_type_eq(170):
+                raise QuestionDoesNotExistException(question_id)
+
+            raise
+
+    def send_message(self, user_id: int, text: str):
+        """Send a message to a specific user."""
+        conversation = self._request("api_messages/check", "POST", {
+            "user_id": user_id
+        })
+
+        conversation_id = conversation.data["conversation_id"]
+
+        return self._request("api_messages/send", "POST", {
+            "content": text,
+            "conversation_id": conversation_id
+        })

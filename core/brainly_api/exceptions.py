@@ -23,6 +23,15 @@ class BrainlyLegacyAPIRequestException(Exception):
         super().__init__(f"Request to the Brainly legacy API failed: {message}")
 
 
+class QuestionDoesNotExistException(Exception):
+    question_id: int
+
+    def __init__(self, question_id: int):
+        self.question_id = question_id
+
+        super().__init__(f"Question {question_id} does not exist")
+
+
 class BrainlyGraphqlException(Exception):
     def __init__(self, message, response: BrainlyGraphqlResponse | None = None):
         self.message = message
