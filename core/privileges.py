@@ -1,0 +1,19 @@
+from enum import IntEnum
+
+
+class ModeratorPrivilege(IntEnum):
+    CAN_VIEW_USERS = 1
+    CAN_VIEW_USER_GROUPS = 2
+    CAN_INVITE_USERS = 3
+    CAN_VIEW_INVITES = 4
+    CAN_VIEW_PRIVILEGES = 5
+    CAN_EDIT_PRIVILEGES = 6
+    CAN_REMOVE_USERS = 7
+
+    IS_MENTOR = 8
+    CAN_ADD_MENTORS = 9
+    CAN_REMOVE_MENTORS = 10
+    CAN_VIEW_OTHER_MENTEES = 11
+
+    IS_DEVELOPER = 12
+    IS_ADMIN = 13
