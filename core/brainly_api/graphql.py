@@ -3,25 +3,15 @@ from http import HTTPStatus
 from httpx import Client as HttpClient
 from core.markets import Market
 from .config import GRAPHQL_SERVER_URL
-
-
-class BrainlyGraphqlResponse:
-    def __init__(self, response: dict):
-        self.data = response.get("data")
-        self.errors = response.get("errors") or []
-
-
-class BrainlyGraphqlException(Exception):
-    def __init__(self, message, response: BrainlyGraphqlResponse | None = None):
-        self.message = message
-        self.response_errors = response.errors if response else []
-
-        super().__init__(
-            self.message if len(self.response_errors) == 0 else f"{self.message}: {self.response_errors}"
-        )
+from .responses import BrainlyGraphqlResponse
+from .exceptions import BrainlyGraphqlException
 
 
 class BrainlyGraphQLAPI:
+    """
+    Represents the Brainly GraphQL API (https://brainly.com/graphql)
+    """
+
     _client: HttpClient
 
     def __init__(
