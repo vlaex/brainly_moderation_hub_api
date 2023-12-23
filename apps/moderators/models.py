@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.postgres.fields import ArrayField
 from django.core.validators import URLValidator
 from core import make_db_choices_from_enum, Market, Gender
@@ -48,6 +48,9 @@ class Moderator(AbstractBaseUser):
 
     USERNAME_FIELD = "global_id"
     REQUIRED_FIELDS = ["user_id", "market", "nick"]
+
+    password = None
+    last_login = None
 
     @property
     def is_active(self):
