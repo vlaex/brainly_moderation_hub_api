@@ -1,0 +1,11 @@
+__pycache__
+.venv/
+.idea/
+poetry.lock
+.env.*
+.pytest_cache
+/local/
+/.vscode/*
+!/.vscode/launch.json
+**/db.sqlite3
+django.mo
