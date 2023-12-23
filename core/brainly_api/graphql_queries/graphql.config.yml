@@ -1,0 +1,4 @@
+schema:
+  - https://graphql.z-dn.net/us
+  - https://graphql.z-dn.net/ru
+documents: '**/*.graphql'

@@ -1,0 +1,24 @@
+query GetUser($userId: ID!) {
+  user(id: $userId) {
+    id
+    nick
+    created
+    rank {
+      id
+      name
+    }
+    specialRanks {
+      id
+      name
+    }
+    points
+    gender
+    avatar {
+      url
+    }
+    helpedUsersCount
+    thanks {
+      count
+    }
+  }
+}
