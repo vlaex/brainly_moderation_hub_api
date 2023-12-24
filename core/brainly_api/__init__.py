@@ -4,6 +4,7 @@ from .responses import BrainlyGraphqlResponse, LegacyApiResponse
 from .exceptions import BrainlyGraphqlException, BrainlyLegacyAPIException, BrainlyLegacyAPIRequestException, \
     QuestionDoesNotExistException
 from .use_graphql_query import use_graphql_query
+from .graphql_queries import BrainlyGQLUser
 
 
 __all__ = [
@@ -15,5 +16,6 @@ __all__ = [
     "BrainlyLegacyAPIException",
     "BrainlyLegacyAPIRequestException",
     "QuestionDoesNotExistException",
-    "LegacyApiResponse"
+    "LegacyApiResponse",
+    "BrainlyGQLUser"
 ]
