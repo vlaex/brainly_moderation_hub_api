@@ -19,7 +19,7 @@ class Moderator(AbstractBaseUser):
     The point system is used for rankings, leaderboards, achievements.
     """
 
-    global_id = models.CharField(db_column="id", verbose_name="global_id", primary_key=True)
+    id = models.CharField(verbose_name="global_id", primary_key=True)
     user_id = models.BigIntegerField(verbose_name="id")
     market = models.CharField(max_length=5, choices=make_db_choices_from_enum(Market))
     is_bot = models.BooleanField(default=False)
@@ -46,15 +46,11 @@ class Moderator(AbstractBaseUser):
 
     privileges = ArrayField(models.IntegerField())
 
-    USERNAME_FIELD = "global_id"
+    USERNAME_FIELD = "id"
     REQUIRED_FIELDS = ["user_id", "market", "nick"]
 
     password = None
     last_login = None
-
-    @property
-    def id(self):
-        return self.global_id
 
     @property
     def is_active(self):
