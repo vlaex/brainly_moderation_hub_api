@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-23 17:36+0300\n"
+"POT-Creation-Date: 2023-12-24 16:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,14 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\brainly_moderation_hub_api\settings.py:105
+
+#: .\brainly_moderation_hub_api\settings.py:142
 msgid "English"
-msgstr "eeer"
+msgstr "English"
 
-#: .\brainly_moderation_hub_api\settings.py:106
+#: .\brainly_moderation_hub_api\settings.py:143
 msgid "Russian"
-msgstr ""
+msgstr "Russian"
 
-#: .\brainly_moderation_hub_api\settings.py:107
+#: .\brainly_moderation_hub_api\settings.py:144
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukrainian"
+
+#: .\core\exception_handler\handlers.py:9
+msgid "Authentication token not provided"
+msgstr "Authentication token not provided"
