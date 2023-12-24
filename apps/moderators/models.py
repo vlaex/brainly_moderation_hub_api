@@ -53,6 +53,10 @@ class Moderator(AbstractBaseUser):
     last_login = None
 
     @property
+    def id(self):
+        return self.global_id
+
+    @property
     def is_active(self):
         return not self.is_deactivated
 

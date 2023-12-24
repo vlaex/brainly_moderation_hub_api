@@ -1,5 +1,6 @@
 import os
 import environ
+from datetime import timedelta
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 
@@ -16,6 +17,7 @@ SECRET_KEY = env("SECRET_KEY")
 
 ALLOWED_HOSTS = ["*"]
 INTERNAL_IPS = ["127.0.0.1"]
+APPEND_SLASH = False
 
 WSGI_APPLICATION = "brainly_moderation_hub_api.wsgi.application"
 ROOT_URLCONF = "brainly_moderation_hub_api.urls"
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "debug_toolbar",
 
+    "apps.authentication",
     "apps.moderators"
 ]
 
@@ -106,6 +109,26 @@ REST_FRAMEWORK = {
 }
 
 REST_USE_JWT = True
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=90),
+    "ROTATE_REFRESH_TOKENS": False,
+    "BLACKLIST_AFTER_ROTATION": False,
+    "UPDATE_LAST_LOGIN": False,
+
+    "ALGORITHM": "HS256",
+    "SIGNING_KEY": env("JWT_SECRET_KEY"),
+    "VERIFYING_KEY": "",
+    "AUDIENCE": None,
+    "ISSUER": "brainly_mod_hub",
+
+    "AUTH_HEADER_TYPES": ("Bearer",),
+    "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
+    "USER_ID_CLAIM": "user_id",
+
+    "TOKEN_OBTAIN_SERIALIZER": "apps.authentication.token_serializers.TokenObtainPairSerializer"
+}
 
 AUTH_USER_MODEL = "moderators.Moderator"
 
