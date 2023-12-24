@@ -16,32 +16,34 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: .\brainly_moderation_hub_api\settings.py:142
 msgid "English"
-msgstr "English"
+msgstr "Английский"
 
 #: .\brainly_moderation_hub_api\settings.py:143
 msgid "Russian"
-msgstr "Russian"
+msgstr "Русский"
 
 #: .\brainly_moderation_hub_api\settings.py:144
 msgid "Ukrainian"
-msgstr "Ukrainian"
+msgstr "Украинский"
 
 #: .\core\exception_handler\make_response.py:9
 msgid "Authentication token not provided"
-msgstr "Authentication token not provided"
+msgstr "Токен авторизации не указан"
 
 #: .\core\exception_handler\make_response.py:17
 msgid "Invalid auth token"
-msgstr "Auth token provided is invalid or expired"
+msgstr "Неверный токен авторизации"
 
 #: .\core\exception_handler\make_response.py:25
 msgid "Internal error"
-msgstr "An unexpected server error has occured"
+msgstr "Непредвиденная ошибка сервера"
 
 #: .\core\exception_handler\make_response.py:33
 msgid "You do not have permission to perform this action"
-msgstr "You do not have permission to perform this action"
+msgstr "У вас нет прав для выполнения этого действия"

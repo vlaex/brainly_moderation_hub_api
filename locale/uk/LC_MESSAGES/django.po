@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-24 20:00+0200\n"
+"POT-Creation-Date: 2023-12-24 20:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,32 +16,35 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
 #: .\brainly_moderation_hub_api\settings.py:142
 msgid "English"
-msgstr "English"
+msgstr "Англійська"
 
 #: .\brainly_moderation_hub_api\settings.py:143
 msgid "Russian"
-msgstr "Russian"
+msgstr "Російська"
 
 #: .\brainly_moderation_hub_api\settings.py:144
 msgid "Ukrainian"
-msgstr "Ukrainian"
+msgstr "Українська"
 
 #: .\core\exception_handler\make_response.py:9
 msgid "Authentication token not provided"
-msgstr "Authentication token not provided"
+msgstr "Токен авторизації не вказано"
 
 #: .\core\exception_handler\make_response.py:17
 msgid "Invalid auth token"
-msgstr "Auth token provided is invalid or expired"
+msgstr "Неправильний токен авторизації"
 
 #: .\core\exception_handler\make_response.py:25
 msgid "Internal error"
-msgstr "An unexpected server error has occured"
+msgstr "Внутрішня помилка сервера"
 
 #: .\core\exception_handler\make_response.py:33
 msgid "You do not have permission to perform this action"
-msgstr "You do not have permission to perform this action"
+msgstr "У вас немає прав для виконання цієї дії"
