@@ -6,6 +6,7 @@ from .exceptions import BrainlyGraphqlException, BrainlyLegacyAPIException, Brai
 from .use_graphql_query import use_graphql_query
 from .graphql_queries import BrainlyGQLUser
 from .graphql_utils import gql_id_to_int, str_to_gql_id
+from .config import DEFAULT_USER_AVATAR
 
 
 __all__ = [
@@ -20,5 +21,6 @@ __all__ = [
     "LegacyApiResponse",
     "BrainlyGQLUser",
     "gql_id_to_int",
-    "str_to_gql_id"
+    "str_to_gql_id",
+    "DEFAULT_USER_AVATAR"
 ]
