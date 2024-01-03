@@ -1,0 +1,7 @@
+[run]
+data_file = coverage/.coveragedb
+omit =
+    */tests/*
+
+[html]
+directory = coverage

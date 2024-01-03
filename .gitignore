@@ -9,3 +9,4 @@ poetry.lock
 !/.vscode/launch.json
 **/db.sqlite3
 django.mo
+coverage/
