@@ -2,7 +2,7 @@ import os
 from http import HTTPStatus
 from httpx import Client as HttpClient
 from core.markets import Market
-from .config import GRAPHQL_SERVER_URL
+from core.brainly_api.config import GRAPHQL_SERVER_URL
 from .responses import BrainlyGraphqlResponse
 from .exceptions import BrainlyGraphqlException
 

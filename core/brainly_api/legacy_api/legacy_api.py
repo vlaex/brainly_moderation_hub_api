@@ -3,7 +3,7 @@ from typing import Any
 from http import HTTPStatus
 from httpx import Client as HttpClient, HTTPError
 from core.markets import Market
-from .config import LEGACY_API_HOST
+from core.brainly_api.config import LEGACY_API_HOST
 from .responses import LegacyApiResponse
 from .exceptions import BrainlyLegacyAPIException, BrainlyLegacyAPIRequestException, QuestionDoesNotExistException
 
